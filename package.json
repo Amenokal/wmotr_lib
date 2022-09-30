@@ -1,0 +1,26 @@
+{
+  "type": "module",
+  "name": "wmotr_lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amenokal/wmotr_lib.git"
+  },
+  "keywords": [
+    "wmotr"
+  ],
+  "author": "Lucien Cauchy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amenokal/wmotr_lib/issues"
+  },
+  "homepage": "https://github.com/Amenokal/wmotr_lib#readme",
+  "dependencies": {
+    "typescript": "^4.8.3"
+  }
+}
