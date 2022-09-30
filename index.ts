@@ -1,6 +1,5 @@
-// -------------------------------------------------------------
-// LIB
-import { FormCheck } from './formCheck/form'
+import { FormCheck } from './form'
+import { ConfigRule } from './form/types'
 
 /**
  * Fonction pour valider les inputs d'un formulaire selon des règles à établir.

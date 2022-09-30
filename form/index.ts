@@ -1,3 +1,5 @@
+import { NamedInput, ConfigRule, SizeRule, MandatoryRule, RegexRule, MergedFormData, FormError } from "./types"
+
 export class FormCheck {
 
     inputs: Array<NamedInput>

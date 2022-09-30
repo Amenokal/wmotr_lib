@@ -1,46 +1,46 @@
 // HTML INPUTS
 // should have "name" attributes
-interface NamedInput extends HTMLInputElement{
+export interface NamedInput extends HTMLInputElement{
     name: string
 }
 
 // RULE CONTAINER
-interface ConfigRule {
+export interface ConfigRule {
     name: string
     rules: Array<MandatoryRule | SizeRule | RegexRule>        
 }
 // RULES
-interface SizeRule {
+export interface SizeRule {
     type: "size"
     value: [number, number]
     error: string
 }
-interface RegexRule {
+export interface RegexRule {
     type: "regex"
     value: RegExp
     error: string
 }
-interface MandatoryRule {
+export interface MandatoryRule {
     type: "mandatory"
     value: boolean
     error: string
 }
 
 // MERGED DATA : INPUTS <---> RULES
-interface MergedFormData {
+export interface MergedFormData {
     name: string
     value: string
     rules?: Array<MandatoryRule | SizeRule | RegexRule>
 }
 
 // OUTPUT
-interface FormOutput {
+export interface FormOutput {
     config: Array<ConfigRule>,
     inputs: Array<NamedInput>,
     error: FormError,
 }
 // OUTPUT ERROR
-interface FormError {
+export interface FormError {
     message: string,
     input: NamedInput | undefined,
 }
