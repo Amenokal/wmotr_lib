@@ -16,7 +16,7 @@ import { FormCheck } from './formCheck/form'
  * 
  */
 
-export function validate(e: SubmitEvent, handleSuccess: Function, handleFail: Function, config: Array<ConfigRule>){
+export function validate(e: Event, handleSuccess: Function, handleFail: Function, config: Array<ConfigRule>){
     e.preventDefault()
 
     const inputs = Array.from(document.querySelectorAll(`input`))
