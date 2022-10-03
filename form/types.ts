@@ -5,11 +5,18 @@ export interface NamedInput extends HTMLInputElement{
 }
 
 // RULE CONTAINER
+export type Rule = MandatoryRule | SizeRule | RegexRule | ConfirmRule
+
 export interface ConfigRule {
     name: string
-    rules: Array<MandatoryRule | SizeRule | RegexRule>        
+    rules: Array<Rule>        
 }
+
 // RULES
+export interface MandatoryRule {
+    type: "mandatory"
+    error: string
+}
 export interface SizeRule {
     type: "size"
     value: [number, number]
@@ -20,17 +27,18 @@ export interface RegexRule {
     value: RegExp
     error: string
 }
-export interface MandatoryRule {
-    type: "mandatory"
-    value: boolean
+export interface ConfirmRule {
+    type: "confirm"
+    value: string
     error: string
 }
+
 
 // MERGED DATA : INPUTS <---> RULES
 export interface MergedFormData {
     name: string
     value: string
-    rules?: Array<MandatoryRule | SizeRule | RegexRule>
+    rules?: Array<Rule>
 }
 
 // OUTPUT

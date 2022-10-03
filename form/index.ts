@@ -1,4 +1,4 @@
-import { NamedInput, ConfigRule, SizeRule, MandatoryRule, RegexRule, MergedFormData, FormError } from "./types"
+import { NamedInput, ConfigRule, SizeRule, MandatoryRule, RegexRule, MergedFormData, FormError, Rule, ConfirmRule } from "./types"
 
 export class FormCheck {
 
@@ -40,6 +40,8 @@ export class FormCheck {
                             break;
                         case "regex": this.checkRegex(input, rule)
                             break;
+                        case "confirm": this.checkConfirm(input, rule)
+                            break;
                         default: console.error(`[Form verificator] - Pas de méthode pour la règle ${rule}`)
                     }
                 }
@@ -68,10 +70,17 @@ export class FormCheck {
         }
     }
 
+    checkConfirm(input1: MergedFormData, rule: ConfirmRule){
+        const input2 = this.inputs.find((i) => i.name === rule.value)
+        if(input1.value !== input2.value){
+            this.setError(rule, input2)
+        }
+    }
+
     // -------------------------------------------------------------
     // HELPER
 
-    setError(rule: MandatoryRule | SizeRule | RegexRule, input: MergedFormData){
+    setError(rule: Rule, input: MergedFormData){
         this.error = {
             message: rule.error,
             input: this.inputs.find((i) => i.name === input.name)
